@@ -353,7 +353,7 @@ export default function ValidatorForm({ onResults, onStart, embedded = false }: 
                   key={example.label}
                   type="button"
                   onClick={() => setExample(example)}
-                  className={`quick-start-btn ${isLimited ? "disabled" : ""}`}
+                  className={`quick-start-btn ${isLimited ? "disabled" : "cursor-pointer"}`}
                 >
                   {example.label}
                 </button>
