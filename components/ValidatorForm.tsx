@@ -156,7 +156,7 @@ export default function ValidatorForm({ onResults, onStart, embedded = false }: 
   const setExample = (example: (typeof EXAMPLES)[number]) => {
     setFormData(example.data);
     setErrors({});
-    setStep(2);
+    setStep(1);
   };
 
   const toggleCategory = (cat: string) => {
@@ -211,6 +211,7 @@ export default function ValidatorForm({ onResults, onStart, embedded = false }: 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (step !== 3) return;
     if (!validateByStep(3)) return;
 
     if (isLimited) {
@@ -567,12 +568,12 @@ export default function ValidatorForm({ onResults, onStart, embedded = false }: 
                   </button>
 
                   {step < 3 ? (
-                    <button type="button" onClick={goNext} className="cta-primary w-full sm:flex-1 justify-center">
+                    <button key="continue" type="button" onClick={goNext} className="cta-primary w-full sm:flex-1 justify-center">
                       Continue
                       <ChevronRight size={16} />
                     </button>
                   ) : (
-                    <button id="validate-submit-btn" type="submit" className="cta-primary w-full sm:flex-1 justify-center">
+                    <button key="submit" id="validate-submit-btn" type="submit" className="cta-primary w-full sm:flex-1 justify-center">
                       Validate My Idea
                       <ArrowRight size={16} />
                     </button>
