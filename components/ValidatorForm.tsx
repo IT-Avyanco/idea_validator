@@ -13,6 +13,7 @@ import {
   Phone,
 } from "lucide-react";
 import type { FormData } from "@/lib/gemini";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 const EMIRATES = [
   "Dubai",
@@ -348,10 +349,11 @@ export default function ValidatorForm({ onResults, onStart, embedded = false }: 
               <span className="text-xs text-slate-500 font-medium">Quick start:</span>
               {EXAMPLES.map((example) => (
                 <button
+                  disabled={isLimited}
                   key={example.label}
                   type="button"
                   onClick={() => setExample(example)}
-                  className="cursor-pointer quick-start-btn"
+                  className={`quick-start-btn ${isLimited ? "disabled" : ""}`}
                 >
                   {example.label}
                 </button>
@@ -426,7 +428,7 @@ export default function ValidatorForm({ onResults, onStart, embedded = false }: 
                       rel="noopener noreferrer"
                       className="cta-emerald"
                     >
-                      <MessageCircle size={16} />
+                      <WhatsAppIcon className="w-[20px] h-[20px]" />
                       WhatsApp Support
                     </a>
                   </div>

@@ -69,7 +69,7 @@ export default function Navbar({ hasHistory }: Props) {
               id="navbar-cta"
               className="hidden md:inline-flex cta-emerald header-whatsapp"
             >
-              <WhatsAppIcon className="w-[15px] h-[15px]" />
+              <WhatsAppIcon className="w-[18px] h-[18px]" />
               WhatsApp Us
             </a>
             {/* Mobile: icon only */}

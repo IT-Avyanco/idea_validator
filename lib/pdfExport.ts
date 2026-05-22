@@ -38,10 +38,15 @@ export async function generatePDF(
   doc.setTextColor(...white);
   doc.setFontSize(18);
   doc.setFont("helvetica", "bold");
-  doc.text("avyanco", 14, 13);
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(10);
-  doc.text("IDEAPROOF", 14, 20);
+  // add company logo public\logo-white.webp with height 50 and auto width, positioned at (14, 4)
+  const logoImg = new Image();
+  logoImg.src = "/logo-white.png";
+  await new Promise((resolve) => {
+    logoImg.onload = resolve;
+  });
+  const logoHeight = 13;
+  const logoWidth = (logoImg.width / logoImg.height) * logoHeight;
+  doc.addImage(logoImg, "png", 14, 8, logoWidth, logoHeight);
 
   doc.setFontSize(11);
   doc.setFont("helvetica", "bold");
